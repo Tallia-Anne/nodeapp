@@ -1,14 +1,18 @@
 const Sequelize = require("sequelize");
-
+require('dotenv').config()
 
 const db = {};
 
 
 const dbinfo = new Sequelize(process.env.DATABASE_URL, {
-    dialect: "postgres",
-    
-});
-
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    }
+}
+);
 
 dbinfo
     .authenticate()
@@ -38,6 +42,6 @@ db.dinfo = dbinfo;
 
 db.Sequelize = Sequelize;
 
-dbinfo.sync({ force: true });
+//dbinfo.sync({ force: true });
 
 module.exports = db;
