@@ -2,8 +2,8 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const cors = require("cors");
 
-var port = process.env.PORT || 3000;;
-
+//var port = process.env.PORT || 3000;;
+app.set('port', (process.env.PORT || 3000));
 
 var hostname = "localhost";
 
@@ -25,5 +25,5 @@ app.use("/contact", require("./router/contact"));
 
 
 app.listen(port, hostname, function() {
-    console.log("mon serveur fonction sur http://" + hostname + ":" + port + "\n");
+    console.log("mon serveur fonction sur http://" + hostname + ":" + app.get('port') + "\n");
 });
