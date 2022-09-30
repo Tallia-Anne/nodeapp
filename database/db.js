@@ -38,6 +38,6 @@ db.dinfo = dbinfo;
 
 db.Sequelize = Sequelize;
 
-//dbinfo.sync({ force: true });
+dbinfo.sync({ force: true });
 
 module.exports = db;
