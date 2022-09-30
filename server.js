@@ -2,8 +2,8 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const cors = require("cors");
 
-// var port = 3000;
-app.set('port' , (process.env.PORT || 3000))
+var port = process.env.PORT || 3000;;
+
 
 var hostname = "localhost";
 
