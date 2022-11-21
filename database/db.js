@@ -34,7 +34,7 @@ dbinfo
         console.log("connection to the db");
     })
     .catch((err) => {
-        console.error("unable to connect to the datase:" + err);
+        console.error("unable to connect to the database:" + err);
     });
 
 

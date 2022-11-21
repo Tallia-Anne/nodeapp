@@ -3,7 +3,7 @@ const bodyparser = require("body-parser");
 const cors = require("cors");
 require('dotenv').config()
 
- var port = process.env.PORT || 3000;
+var port =3000;
 
 
 var hostname = "localhost";
