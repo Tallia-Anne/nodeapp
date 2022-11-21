@@ -13,19 +13,14 @@ console.log('Port    :', process.env.port, '\n')
 const db = {};
 
 
-const dbinfo = new Sequelize(
-    process.env.database,
-    process.env.username,
-    process.env.password,
-    {
-        host: process.env.host,
-        dialect: 'postgres',
-        port: process.env.port,
-        query: {
-            raw: false
-        },
-        logging: false
+const dbinfo = new Sequelize(process.env.DATABASE_URL, {
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
     }
+}
 );
 
 dbinfo
@@ -34,7 +29,7 @@ dbinfo
         console.log("connection to the db");
     })
     .catch((err) => {
-        console.error("unable to connect to the database:" + err);
+        console.error("unable to connect to the datase:" + err);
     });
 
 

@@ -1,9 +1,9 @@
 const express = require("express");
 const bodyparser = require("body-parser");
 const cors = require("cors");
-require('dotenv').config()
 
-var port =3000;
+
+var port =8080;
 
 
 var hostname = "localhost";
