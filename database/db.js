@@ -2,25 +2,25 @@
 require('dotenv').config()
 const Sequelize = require("sequelize");
 
-console.log('\n')
-console.log('Schema  :', process.env.DB_SCHEMA)
-console.log('User    :', process.env.DB_USER)
-console.log('Passwd  :', process.env.DB_PASSWD)
-console.log('Host    :', process.env.DB_HOST)
-console.log('Port    :', process.env.DB_PORT, '\n')
+console.log('\n les donnée:')
+console.log('Schema  :', process.env.database)
+console.log('User    :', process.env.host)
+console.log('Passwd  :', process.env.password)
+console.log('Host    :', process.env.host)
+console.log('Port    :', process.env.port, '\n')
 
 
 const db = {};
 
 
 const dbinfo = new Sequelize(
-    database,
-    username,
-    password,
+    process.env.database,
+    process.env.username,
+    process.env.password,
     {
-        host: host,
-        dialect: dialect,
-        port: port,
+        host: process.env.host,
+        dialect: 'postgres',
+        port: process.env.port,
         query: {
             raw: false
         },
@@ -56,6 +56,6 @@ db.dinfo = dbinfo;
 
 db.Sequelize = Sequelize;
 
-//dbinfo.sync({ force: true });
+dbinfo.sync({ force: true });
 
 module.exports = db;
