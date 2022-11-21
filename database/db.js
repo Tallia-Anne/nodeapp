@@ -1,17 +1,31 @@
-const Sequelize = require("sequelize");
+
 require('dotenv').config()
+const Sequelize = require("sequelize");
+
+console.log('\n')
+console.log('Schema  :', process.env.DB_SCHEMA)
+console.log('User    :', process.env.DB_USER)
+console.log('Passwd  :', process.env.DB_PASSWD)
+console.log('Host    :', process.env.DB_HOST)
+console.log('Port    :', process.env.DB_PORT, '\n')
+
 
 const db = {};
 
 
-const dbinfo = new Sequelize(process.env.DATABASE_URL, {
-    dialectOptions: {
-        ssl: {
-            require: true,
-            rejectUnauthorized: false
-        }
+const dbinfo = new Sequelize(
+    database,
+    username,
+    password,
+    {
+        host: host,
+        dialect: dialect,
+        port: port,
+        query: {
+            raw: false
+        },
+        logging: false
     }
-}
 );
 
 dbinfo
